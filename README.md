@@ -1,11 +1,21 @@
 JAMP
 ====
 A portable platform-independent PHP, webserver and database stack in Java.
-[See blog post.](http://www.webdevelopersdiary.com/1/post/2012/07/jamp-an-ultra-portable-php-web-server-and-database-stack-in-java.html)
+[See blog post at webdevelopersdiary.com.](http://www.webdevelopersdiary.com/1/post/2012/07/jamp-an-ultra-portable-php-web-server-and-database-stack-in-java.html)
 
-php.ini
+Install
 =======
-php.ini is located at src/main/webapp/WEB-INF/php.ini.
+Install the latest version of Quercus and clone the JAMP repository, e.g.
+
+	wget http://caucho.com/download/quercus-4.0.25.war
+	mvn install:install-file -Dfile=quercus-4.0.25.war -DgroupId=com.caucho -DartifactId=quercus -Dversion=4.0.25 -Dpackaging=war
+	git clone https://github.com/webdevelopersdiary/jamp.git
+
+Run
+===
+Put your files in the document root located at src/main/webapp and start the webserver:
+	cd jamp
+	mvn jetty:run
 
 Internal database
 ===================
@@ -37,3 +47,7 @@ and comment the following block:
 
 With this code block still enabled, Quercus will just ignore all connect parameters
 and connect you with the internal database instead.
+
+php.ini
+=======
+php.ini is located at src/main/webapp/WEB-INF/php.ini.
