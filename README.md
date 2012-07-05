@@ -57,5 +57,5 @@ php.ini is located at src/main/webapp/WEB-INF/php.ini.
 
 Known limitations
 =================
-JAMP only supports PDO database connections to it's internal database
+JAMP only supports PDO database connections to its internal database
 (mysql_connect() is supported, but only to external databases).
