@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jamp</artifactId>
+	<groupId>com.webdevelopersdiary</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>JAMP</name>
+	<description>A portable platform-independent PHP, webserver and database stack in Java.</description>
+	<url>https://github.com/webdevelopersdiary/jamp#readme</url>
+
+	<properties>
+		<sourceEncoding>UTF-8</sourceEncoding>
+		<compileSource>1.6</compileSource>
+	</properties>
+
+	<dependencies>
+		<!-- Caucho Quercus, required for interpreting PHP files -->
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>quercus</artifactId>
+			<version>4.0.25</version>
+			<type>war</type>
+		</dependency>
+		
+		<!-- H2 Database engine -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.167</version>
+		</dependency>
+		
+		<!-- Database connection pooling -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		
+		<!-- MySQL driver.
+		     This is actually not required to connect to H2 through
+		     Quercus' PDO driver, but it's included anyway just in case
+		     there is a need to connect to an external MySQL server.
+		  -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.20</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>8.1.4.v20120524</version>
+					<configuration>
+						<scanIntervalSeconds>1</scanIntervalSeconds>
+						<stopKey>foo</stopKey>
+						<stopPort>9999</stopPort>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

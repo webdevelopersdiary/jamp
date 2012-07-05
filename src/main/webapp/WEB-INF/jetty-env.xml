@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <New id="myapp" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>java:comp/env/jdbc/h2</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="url">jdbc:h2:mem:;MODE=MYSQL</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>
