@@ -59,5 +59,3 @@ Known limitations
 =================
 JAMP only supports PDO database connections to it's internal database
 (mysql_connect() is supported, but only to external databases).
-
-SQLite support is not available, Quercus does not have SQLite drivers, unfortunately.
