@@ -54,3 +54,10 @@ and connect you with the internal database instead.
 php.ini
 =======
 php.ini is located at src/main/webapp/WEB-INF/php.ini.
+
+Known limitations
+=================
+JAMP only supports PDO database connections to it's internal database
+(mysql_connect() is supported, but only to external databases).
+
+SQLite support is not available, Quercus does not have SQLite drivers, unfortunately.
