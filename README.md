@@ -13,10 +13,12 @@ Install the latest version of Quercus and clone the JAMP repository, e.g.
 
 Run
 ===
-Put your files in the document root located at src/main/webapp and start the webserver:
+Put your files in the document root located at src/main/webapp/ and start the webserver:
+
 	cd jamp
 	mvn jetty:run
-Wait until you see "[INFO] Started Jetty Server" in the console output and point your browser to http://localhost:8080/
+
+Wait until you see `[INFO] Started Jetty Server` in the console output and point your browser to http://localhost:8080/
 
 Internal database
 ===================
