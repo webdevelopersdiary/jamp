@@ -13,15 +13,13 @@ By default the database is temporary, meaning if you stop the web server, the da
 If you want to use a persistent database file instead of the temporary in-memory database,
 go to src/main/webapp/WEB-INF/jetty-env.xml and change line
 
-<pre>
 	<Set name="url">jdbc:h2:mem:;MODE=MYSQL</Set>
-</pre>
+
 
 to
 
-<pre>
 	<Set name="url">jdbc:h2:filename;MODE=MYSQL</Set>
-</pre>
+
 
 Where you replace 'filename' with a relative path to a file (relative to pom.xml)
 or an absolute path to a file. Note that "mem:" has an extra ":" after it and "filename" does not.
@@ -32,12 +30,10 @@ External MySQL database
 If you want to connect to an external MySQL database, go to src/main/webapp/WEB-INF/web.xml
 and comment the following block:
 
-<pre>
-		<init-param>
-			<param-name>database</param-name>
-			<param-value>java:comp/env/jdbc/h2</param-value>
-		</init-param>
-</pre>
+	<init-param>
+		<param-name>database</param-name>
+		<param-value>java:comp/env/jdbc/h2</param-value>
+	</init-param>
 
 With this code block still enabled, Quercus will just ignore all connect parameters
 and connect you with the internal database instead.
