@@ -1,6 +1,7 @@
 JAMP
 ====
 A portable platform-independent PHP, webserver and database stack in Java.
+[See blog post.](http://www.webdevelopersdiary.com/1/post/2012/07/jamp-an-ultra-portable-php-web-server-and-database-stack-in-java.html)
 
 php.ini
 =======
