@@ -4,13 +4,13 @@
 	<artifactId>jamp</artifactId>
 	<groupId>com.webdevelopersdiary</groupId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<name>JAMP</name>
 	<description>A portable platform-independent PHP, webserver and database stack in Java.</description>
 	<url>https://github.com/webdevelopersdiary/jamp#readme</url>
 
 	<properties>
-		<sourceEncoding>UTF-8</sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<compileSource>1.6</compileSource>
 	</properties>
 
