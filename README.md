@@ -13,18 +13,18 @@ Install the latest version of Quercus and clone the JAMP repository, e.g.
 
 Run
 ===
-Put your files in the document root located at src/main/webapp/ and start the webserver:
+Put your files in the document root located at `src/main/webapp/` and start the webserver:
 
 	cd jamp
 	mvn jetty:run
 
-Wait until you see `[INFO] Started Jetty Server` in the console output and point your browser to http://localhost:8080/
+Wait until you see `[INFO] Started Jetty Server` in the console output and point your browser to `http://localhost:8080/`.
 
 Internal database
 ===================
 By default the database is temporary, meaning if you stop the web server, the data is erased.
 If you want to use a persistent database file instead of the temporary in-memory database,
-go to src/main/webapp/WEB-INF/jetty-env.xml and change line
+go to `src/main/webapp/WEB-INF/jetty-env.xml` and change line
 
 	<Set name="url">jdbc:h2:mem:;MODE=MYSQL</Set>
 
@@ -34,13 +34,13 @@ to
 	<Set name="url">jdbc:h2:filename;MODE=MYSQL</Set>
 
 
-Where you replace 'filename' with a relative path to a file (relative to pom.xml)
-or an absolute path to a file. Note that "mem:" has an extra ":" after it and "filename" does not.
+Where you replace 'filename' with a relative path to a file (relative to `pom.xml`)
+or an absolute path to a file. Note that `mem:` has an extra `:` after it and `filename` does not.
 For more information about the H2 JDBC URL see [H2's feature list](http://www.h2database.com/html/features.html#database_url).
 
 External MySQL database
 =======================
-If you want to connect to an external MySQL database, go to src/main/webapp/WEB-INF/web.xml
+If you want to connect to an external MySQL database, go to `src/main/webapp/WEB-INF/web.xml`
 and comment the following block:
 
 	<init-param>
@@ -53,9 +53,14 @@ and connect you with the internal database instead.
 
 php.ini
 =======
-php.ini is located at src/main/webapp/WEB-INF/php.ini.
+php.ini is located at `src/main/webapp/WEB-INF/php.ini`.
+
+.htaccess
+=========
+JAMP has partial support for .htaccess, currently it can parse mod_rewrite rules.
+.htaccess *must* be located in the web root `src/main/webapp/`.
 
 Known limitations
 =================
 JAMP only supports PDO database connections to its internal database
-(mysql_connect() is supported, but only to external databases).
+(`mysql_connect()` is supported, but only to external databases).
