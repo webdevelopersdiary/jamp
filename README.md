@@ -26,17 +26,17 @@ By default the database is temporary, meaning if you stop the web server, the da
 If you want to use a persistent database file instead of the temporary in-memory database,
 go to `src/main/webapp/WEB-INF/jetty-env.xml` and change line
 
-	<Set name="url">jdbc:h2:mem:;MODE=MYSQL</Set>
+	<Set name="url">jdbc:h2:mem:database;MODE=MYSQL</Set>
 
 
 to
 
-	<Set name="url">jdbc:h2:filename;MODE=MYSQL</Set>
+	<Set name="url">jdbc:h2:file:filename;MODE=MYSQL</Set>
 
-
-Where you replace 'filename' with a relative path to a file (relative to `pom.xml`)
-or an absolute path to a file. Note that `mem:` has an extra `:` after it and `filename` does not.
-For more information about the H2 JDBC URL see [H2's feature list](http://www.h2database.com/html/features.html#database_url).
+Where you replace 'filename' with a relative path to a file
+(relative to `pom.xml`) or an absolute path to a file.
+For more information about the H2 JDBC URL see
+[H2's feature list](http://www.h2database.com/html/features.html#database_url).
 
 External MySQL database
 =======================
