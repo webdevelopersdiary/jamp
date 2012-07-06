@@ -3,6 +3,10 @@ JAMP
 A portable platform-independent PHP, webserver and database stack in Java.
 [See blog post at webdevelopersdiary.com.](http://www.webdevelopersdiary.com/1/post/2012/07/jamp-an-ultra-portable-php-web-server-and-database-stack-in-java.html)
 
+Examples
+========
+[CodeIgniter with ActiveRecord on JAMP](http://www.webdevelopersdiary.com/1/post/2012/07/run-code-igniter-on-h2-database-engine-using-pdo-and-quercus.html)
+
 Install
 =======
 Install the latest version of Quercus and clone the JAMP repository, e.g.
