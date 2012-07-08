@@ -10,6 +10,36 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 	
+	<!-- H2 web console -->
+	<servlet>
+		<servlet-name>H2Console</servlet-name>
+		<servlet-class>org.h2.server.web.WebServlet</servlet-class>
+		<!--
+		<init-param>
+			<param-name>webAllowOthers</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>trace</param-name>
+			<param-value></param-value>
+		</init-param>
+		-->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>H2Console</servlet-name>
+		<url-pattern>/database-console/*</url-pattern>
+	</servlet-mapping>
+	<!-- make sure H2's web console address is not hijacked by other filters -->
+	<filter>
+		<filter-name>DummyFilter</filter-name>
+		<filter-class>com.webdevelopersdiary.jamp.filters.DummyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>DummyFilter</filter-name>
+		<url-pattern>/database-console/*</url-pattern>
+	</filter-mapping>
+	
 	<!-- mod_rewrite support for .htaccess -->
 	<filter>
 		<filter-name>UrlRewriteFilter</filter-name>
@@ -45,7 +75,7 @@
 	<!-- enable mod_rewrite support -->
 	<filter-mapping>
 		<filter-name>UrlRewriteFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
@@ -74,7 +104,11 @@
 	<servlet-mapping>
 		<servlet-name>Quercus Servlet</servlet-name>
 		<url-pattern>*.php</url-pattern>
+		<init>
+			<compile>true</compile>
+		</init>
 	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.php</welcome-file>

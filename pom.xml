@@ -54,10 +54,20 @@
 			<artifactId>urlrewritefilter</artifactId>
 			<version>4.0.3</version>
 		</dependency>
+		
+		<!-- Required for compiling servlets, filters, listeners etc. -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- web server plugin -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -74,6 +84,14 @@
 						<scanIntervalSeconds>1</scanIntervalSeconds>
 						<stopKey>foo</stopKey>
 						<stopPort>9999</stopPort>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${compileSource}</source>
+						<target>${compileSource}</target>
 					</configuration>
 				</plugin>
 			</plugins>

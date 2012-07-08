@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
-    <New id="myapp" class="org.eclipse.jetty.plus.jndi.Resource">
+    <New id="jampdatabase" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg>java:comp/env/jdbc/h2</Arg>
         <Arg>
             <New class="org.apache.commons.dbcp.BasicDataSource">
 				<Set name="url">jdbc:h2:mem:database;MODE=MYSQL</Set>
+				<Set name="minIdle">1</Set>
+				<Set name="initialSize">1</Set>
+				<Set name="validationQuery">SELECT NOW()</Set>
+				<Set name="testWhileIdle">true</Set>
             </New>
         </Arg>
     </New>
