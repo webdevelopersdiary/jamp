@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>com.caucho</groupId>
 			<artifactId>quercus</artifactId>
-			<version>4.0.25</version>
+			<version>4.0.28</version>
 			<type>war</type>
 		</dependency>
 		
