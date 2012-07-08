@@ -42,6 +42,11 @@ Where you replace 'filename' with a relative path to a file
 For more information about the H2 JDBC URL see
 [H2's feature list](http://www.h2database.com/html/features.html#database_url).
 
+A crude database [web based admin tool](http://www.h2database.com/html/quickstart.html?highlight=login&search=Login#firstFound)
+is included. You can connect to the database via the web console located at
+`http://localhost:8080/database-console/` using the JDBC URL (e.g. `jdbc:h2:mem:database;MODE=MYSQL`),
+the default username and password are blank.
+
 External MySQL database
 =======================
 If you want to connect to an external MySQL database, go to `src/main/webapp/WEB-INF/web.xml`
@@ -49,7 +54,7 @@ and comment the following block:
 
 	<init-param>
 		<param-name>database</param-name>
-		<param-value>java:comp/env/jdbc/h2</param-value>
+		<param-value>java:comp/env/jdbc/database</param-value>
 	</init-param>
 
 With this code block still enabled, Quercus will just ignore all connect parameters
@@ -61,7 +66,8 @@ php.ini is located at `src/main/webapp/WEB-INF/php.ini`.
 
 .htaccess
 =========
-JAMP has partial support for .htaccess, currently it can parse mod_rewrite rules.
+JAMP has [partial support](http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html#footer)
+for .htaccess, currently it can parse mod_rewrite rules.
 .htaccess *must* be located in the web root `src/main/webapp/`.
 
 Known limitations
