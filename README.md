@@ -11,8 +11,8 @@ Install
 =======
 Install the latest version of Quercus and clone the JAMP repository, e.g.
 
-	wget http://caucho.com/download/quercus-4.0.28.war
-	mvn install:install-file -Dfile=quercus-4.0.28.war -DgroupId=com.caucho -DartifactId=quercus -Dversion=4.0.28 -Dpackaging=war
+	wget http://caucho.com/download/quercus-4.0.29.war
+	mvn install:install-file -Dfile=quercus-4.0.29.war -DgroupId=com.caucho -DartifactId=quercus -Dversion=4.0.29 -Dpackaging=war
 	git clone https://github.com/webdevelopersdiary/jamp.git
 
 Run
