@@ -74,3 +74,7 @@ Known limitations
 =================
 JAMP only supports PDO database connections to its internal database
 (`mysql_connect()` is supported, but only to external databases).
+A patch has been submitted to H2 database to enable support for
+`mysql_connect()` to the internal database, this fix will be available in
+H2 database version 1.3.169. Alternatively you can [compile a 
+h2 database snapshot from SVN yourself](http://www.webdevelopersdiary.com/1/post/2012/07/how-to-build-h2-database-engine-yourself-and-install-it-in-your-local-maven-repository.html).
