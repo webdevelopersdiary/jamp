@@ -11,8 +11,8 @@ Install
 =======
 Install the latest version of Quercus and clone the JAMP repository, e.g.
 
-	wget http://caucho.com/download/quercus-4.0.29.war
-	mvn install:install-file -Dfile=quercus-4.0.29.war -DgroupId=com.caucho -DartifactId=quercus -Dversion=4.0.29 -Dpackaging=war
+	wget http://caucho.com/download/quercus-4.0.36.war
+	mvn install:install-file -Dfile=quercus-4.0.36.war -DgroupId=com.caucho -DartifactId=quercus -Dversion=4.0.36 -Dpackaging=war
 	git clone https://github.com/webdevelopersdiary/jamp.git
 
 Run
@@ -30,12 +30,12 @@ By default the database is temporary, meaning if you stop the web server, the da
 If you want to use a persistent database file instead of the temporary in-memory database,
 go to `src/main/webapp/WEB-INF/jetty-env.xml` and change line
 
-	<Set name="url">jdbc:h2:mem:database;MODE=MYSQL</Set>
+	<Set name="url">jdbc:h2:mem:database;IGNORECASE=TRUE;MODE=MYSQL</Set>
 
 
 to
 
-	<Set name="url">jdbc:h2:file:filename;MODE=MYSQL</Set>
+	<Set name="url">jdbc:h2:file:filename;IGNORECASE=TRUE;MODE=MYSQL</Set>
 
 Where you replace 'filename' with a relative path to a file
 (relative to `pom.xml`) or an absolute path to a file.
@@ -44,7 +44,7 @@ For more information about the H2 JDBC URL see
 
 A crude database [web based admin tool](http://www.h2database.com/html/quickstart.html?highlight=login&search=Login#firstFound)
 is included. You can connect to the database via the web console located at
-`http://localhost:8080/database-console/` using the JDBC URL (e.g. `jdbc:h2:mem:database;MODE=MYSQL`),
+`http://localhost:8080/database-console/` using the JDBC URL (e.g. `jdbc:h2:mem:database;IGNORECASE=TRUE;MODE=MYSQL`),
 the default username and password are blank.
 
 External MySQL database
@@ -73,8 +73,4 @@ for .htaccess, currently it can parse mod_rewrite rules.
 Known limitations
 =================
 JAMP only supports PDO database connections to its internal database
-(`mysql_connect()` is supported, but only to external databases).
-A patch has been submitted to H2 database to enable support for
-`mysql_connect()` to the internal database, this fix will be available in
-H2 database version 1.3.169. Alternatively you can [compile a 
-h2 database snapshot from SVN yourself](http://www.webdevelopersdiary.com/1/post/2012/07/how-to-build-h2-database-engine-yourself-and-install-it-in-your-local-maven-repository.html).
+(`mysql_connect()` works, but without full support for UTF-8).
